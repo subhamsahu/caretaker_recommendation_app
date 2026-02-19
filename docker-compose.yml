@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  # ───────── FastAPI Server (SQLite) ─────────
+  server:
+    build: ./server
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: sqlite+aiosqlite:////app/data/kidcare.db
+      SECRET_KEY: change-me-in-production-please
+      ACCESS_TOKEN_EXPIRE_MINUTES: "60"
+    volumes:
+      - dbdata:/app/data
+
+  # ───────── React Client ─────────
+  client:
+    build: ./client
+    restart: unless-stopped
+    ports:
+      - "5173:5173"
+    depends_on:
+      - server
+
+volumes:
+  dbdata:
