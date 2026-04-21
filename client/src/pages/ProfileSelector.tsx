@@ -8,7 +8,7 @@ import { listChildren } from "@/api/client"
 import type { Child } from "@/types"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { UserPlus, ArrowLeft } from "lucide-react"
+import { UserPlus, LayoutDashboard } from "lucide-react"
 
 const AVATARS = ["\u{1F9D1}\u200D\u{1F393}", "\u{1F467}", "\u{1F466}", "\u{1F9D2}", "\u{1F476}", "\u{1F9D2}\u{1F3FD}"]
 
@@ -56,9 +56,9 @@ export default function ProfileSelector() {
         </Card>
       </div>
 
-      <Button variant="link" onClick={() => navigate("/dashboard")}>
-        <ArrowLeft className="mr-2 h-4 w-4" />
-        Back to Dashboard
+      <Button variant="link" className="text-muted-foreground" onClick={() => navigate("/dashboard")}>
+        <LayoutDashboard className="mr-2 h-4 w-4" />
+        Parent Dashboard
       </Button>
     </div>
   )

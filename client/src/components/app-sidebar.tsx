@@ -5,6 +5,8 @@ import {
   Users,
   UserPlus,
   Baby,
+  Settings,
+  Gamepad2,
 } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
@@ -49,6 +51,28 @@ const data = {
         {
           title: "Add Child",
           url: "/add-child",
+        },
+      ],
+    },
+    {
+      title: "Learning Games",
+      url: "/games",
+      icon: Gamepad2,
+      items: [
+        {
+          title: "All Games",
+          url: "/games",
+        },
+      ],
+    },
+    {
+      title: "Settings",
+      url: "/settings",
+      icon: Settings,
+      items: [
+        {
+          title: "General",
+          url: "/settings",
         },
       ],
     },

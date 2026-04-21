@@ -6,7 +6,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import type { Mood } from "@/types"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft } from "lucide-react"
+import { ArrowLeft, Gamepad2 } from "lucide-react"
 
 interface MoodOption {
   value: Mood
@@ -56,6 +56,18 @@ export default function MoodSelector() {
         <ArrowLeft className="mr-2 h-4 w-4" />
         Switch Profile
       </Button>
+
+      <div className="flex flex-col items-center gap-1">
+        <span className="text-xs text-muted-foreground">or</span>
+        <Button
+          variant="outline"
+          className="gap-2"
+          onClick={() => navigate(`/child/${childId}/games`)}
+        >
+          <Gamepad2 className="h-4 w-4" />
+          Play a Learning Game
+        </Button>
+      </div>
     </div>
   )
 }

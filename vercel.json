@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "framework": null,
+  "buildCommand": "cd client && npm install && npm run build",
+  "outputDirectory": "client/dist",
+  "functions": {
+    "api/index.py": {
+      "maxDuration": 30
+    }
+  },
+  "rewrites": [
+    { "source": "/auth/:path*",     "destination": "/api/index" },
+    { "source": "/children/:path*", "destination": "/api/index" },
+    { "source": "/videos/:path*",   "destination": "/api/index" },
+    { "source": "/parent/:path*",   "destination": "/api/index" },
+    { "source": "/games/:path*",    "destination": "/api/index" },
+    { "source": "/((?!api/).*)",    "destination": "/index.html" }
+  ]
+}

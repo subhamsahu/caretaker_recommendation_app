@@ -15,10 +15,13 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from '@/components/ui/sidebar'
+import { useSettings } from '@/context/SettingsContext'
 
 export default function Layout() {
+  const { compactMode } = useSettings()
+
   return (
-    <SidebarProvider>
+    <SidebarProvider key={String(compactMode)} defaultOpen={!compactMode}>
       <AppSidebar />
       <SidebarInset>
         <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">

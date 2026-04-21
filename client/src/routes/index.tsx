@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom'
 import Layout from '@/layout/layout'
 import LoginPage from '@/pages/Login'
 import Dashboard from '@/pages/Dashboard'
@@ -9,6 +9,9 @@ import RecommendationFeed from '@/pages/RecommendationFeed'
 import VideoPlayer from '@/pages/VideoPlayer'
 import NotFoundPage from '@/pages/NotFound'
 import ProtectedRoute from '@/components/ProtectedRoute'
+import Settings from '@/pages/Settings'
+import GamesHub from '@/pages/GamesHub'
+import GamePlay from '@/pages/GamePlay'
 
 const router = createBrowserRouter([
   {
@@ -25,7 +28,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Dashboard />,
+        element: <Navigate to="/profiles" replace />,
       },
       {
         path: 'dashboard',
@@ -50,6 +53,26 @@ const router = createBrowserRouter([
       {
         path: 'child/:childId/watch',
         element: <VideoPlayer />,
+      },
+      {
+        path: 'child/:childId/games',
+        element: <GamesHub />,
+      },
+      {
+        path: 'child/:childId/game/:gameId',
+        element: <GamePlay />,
+      },
+      {
+        path: 'games',
+        element: <GamesHub />,
+      },
+      {
+        path: 'games/:gameId',
+        element: <GamePlay />,
+      },
+      {
+        path: 'settings',
+        element: <Settings />,
       },
     ],
   },

@@ -100,4 +100,20 @@ export const getParentDashboard = async (): Promise<ParentDashboard> => {
   return data
 }
 
+/* -------------------- Games -------------------- */
+
+export interface ConceptBuilderResult {
+  title: string
+  total_items: number
+  incorrect_attempts: number
+  time_seconds: number
+  completed_at: string
+}
+
+export const postConceptBuilderResult = async (
+  result: ConceptBuilderResult
+): Promise<void> => {
+  await api.post('/games/concept-builder/result', result)
+}
+
 export default api
